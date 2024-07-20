@@ -1,28 +1,13 @@
-<table mat-table [dataSource]="users()">
-    <!-- Position Column -->
-    <ng-container matColumnDef="position">
-      <th mat-header-cell *matHeaderCellDef> No. </th>
-      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+<table mat-table [dataSource]="dataSource()" matSort>
+    <!-- User Columns -->
+    <ng-container *ngFor="let col of displayedColumns" [matColumnDef]="col">
+      <th class="header-cell {{col}}" mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="'Sort by {{col}}">{{col}}</th>
+      <td class="data-cell {{col}}" mat-cell *matCellDef="let element">{{element[col]}}</td>
     </ng-container>
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Name </th>
-      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-    </ng-container>
+    <!-- User Header Row -->
+    <tr class="header-row" mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
 
-    <!-- Weight Column -->
-    <ng-container matColumnDef="weight">
-      <th mat-header-cell *matHeaderCellDef> Weight </th>
-      <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-    </ng-container>
-
-    <!-- Symbol Column -->
-    <ng-container matColumnDef="symbol">
-      <th mat-header-cell *matHeaderCellDef> Symbol </th>
-      <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <!-- Users Rows -->
+    <tr class="user-row" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
