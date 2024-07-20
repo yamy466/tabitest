@@ -3,7 +3,10 @@
       <!-- User Columns -->
       <ng-container *ngFor="let col of displayedColumns" [matColumnDef]="col">
         <th class="header-cell {{col}}" mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="'Sort by {{col}}">{{col}}</th>
-        <td class="data-cell {{col}}" mat-cell *matCellDef="let element">{{element[col]}}</td>
+        <td class="data-cell {{col}}" mat-cell *matCellDef="let element">
+          <a *ngIf="col === 'website'; else normalCol" [href]="element[col]" target="_blank">{{element[col]}}</a>
+          <ng-template #normalCol>{{element[col]}}</ng-template>
+        </td>
       </ng-container>
   
       <!-- User Header Row -->

@@ -38,15 +38,16 @@ export class UsersTableComponent implements OnInit, AfterViewInit{
       this.#touchtime = new Date().getTime();
       this.#selectedUser = user;
     } 
-    // compare first click to this click and see if they occurred within double click threshold
+    // check if the click is on the same user
     else if(this.#selectedUser === user ) {
+      // compare first click to this click and see if they occurred within double click threshold
       if(((new Date().getTime()) - this.#touchtime) < 500){
         // double click occurred
         this.userDblClicked.emit(user);
         this.#touchtime = 0;
       }
       else {
-        // not a double click so set as a new first click
+        // not a double click, set as a new first click
         this.#touchtime = new Date().getTime();
       }
     }
