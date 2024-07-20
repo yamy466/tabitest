@@ -15,15 +15,16 @@ import { User } from '../../models/user.model';
 export class UserEditorComponent implements OnInit {
   readonly #userSrv = inject(UserService);
   readonly #urlRegex = /^(?:(http(s)?)?(sftp)?(ftp)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/;
-  readonly #phoneRegex = '^0(2|3|4|8|9|7[1-46-9]|5[0-578])[\.-:]?([2-9][0-9]{6})$';
+  readonly #phoneRegex = /^\+?(972|0)(\-)?0?(([23489]{1}\d{7})|[5]{1}\d{8})$/;
+  readonly #englishOnly = /^([a-zA-Z]+\s)*[a-zA-Z]+$/;
   user = toSignal(this.#userSrv.userToEdit$);
   isNewUser = signal(true);
 
   userForm = new FormGroup({
-    name: new FormControl('', Validators.compose([Validators.required, Validators.minLength(2)])),
+    name: new FormControl('', Validators.compose([Validators.required, Validators.minLength(2), Validators.pattern(this.#englishOnly)])),
     phone: new FormControl('', Validators.compose([Validators.required, Validators.pattern(this.#phoneRegex)])),
     email: new FormControl('', Validators.compose([Validators.required, Validators.email])),
-    website: new FormControl('', Validators.pattern(RegExp(this.#urlRegex)))
+    website: new FormControl('', Validators.pattern(this.#urlRegex))
   });
 
   ngOnInit(): void {
@@ -42,7 +43,6 @@ export class UserEditorComponent implements OnInit {
   }
 
   closeEditor() {
-    console.log(this.userForm, 'state')
     this.#userSrv.closeUserEditor();
   }
 
