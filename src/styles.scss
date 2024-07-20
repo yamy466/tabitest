@@ -42,7 +42,7 @@
   .app-btn {
     color: $black;
     background-color: white;
-    border: 1px solid $beige;
+    border: 1px solid $blue;
     border-radius: 30px;
     transition: all 0.4s ease-in-out;
     cursor: pointer;
@@ -55,6 +55,19 @@
   
     &:hover {
       color: white;
-      background-color: $beige;
+      background-color: $blue;
     }
+  }
+
+  .page-title {
+    text-align: center;
+    font-weight: bold;
+    @include fluid-mobile(font-size, 18px, 20px);
+    @include desktop {
+      @include fluid-desktop(font-size, 20px, 24px);
+    }
+  }
+
+  .cdk-describedby-message-container {
+    display: none;
   }

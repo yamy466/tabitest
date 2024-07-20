@@ -1,0 +1,23 @@
+@import '../../../assets/styles/mixins';
+@import '../../../assets/styles/variables';
+
+.user-page {
+    @include flex-column-center;
+    @include fluid-mobile(padding-top, 20px, 40px);
+
+    .page-title {
+        @include fluid-mobile(margin-bottom, 10px, 15px);
+    }
+
+    .page-desc {
+        @include fluid-mobile(margin-bottom, 15px, 30px);
+        @include fluid-mobile(font-size, 14px, 16px);
+        @include desktop {
+          @include fluid-desktop(font-size, 16px, 18px);
+        }
+    }
+
+    .users-table {
+        width: 96%;
+    }
+}

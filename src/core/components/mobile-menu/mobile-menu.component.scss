@@ -23,7 +23,7 @@
             white-space: nowrap;
             @include fluid-mobile(margin-bottom margin-top, 15px, 20px);
             &.selected {
-                color: $beige;
+                color: $blue;
             }
         }
     }

@@ -7,8 +7,8 @@
     color: white;
     position: sticky;
     top: 0;
-    z-index: 100;
-    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    background-color: rgba(#0d6efd, 0.4);
     box-shadow: 0px 4px 9px -2px rgba(156, 156, 156, 0.5);
     transition: background-color ease-in 0.4s;
     @include flex-space-between;
@@ -46,7 +46,7 @@
         @include desktop {
             @include fluid-desktop(font-size, 28px, 36px);
             &:hover{
-                color: $beige;
+                color: $blue;
             }
         }
     }
@@ -84,10 +84,10 @@
                 }
                 &:hover,
                 &.selected {
-                    color: $beige;
+                    color: $blue;
                     &::after{
                         width: 100%;
-                        background-color: $beige;
+                        background-color: $blue;
                     }
                 }
             }
