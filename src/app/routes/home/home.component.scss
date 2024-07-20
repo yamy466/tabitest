@@ -39,7 +39,7 @@
         width: fit-content;
         text-align: center;
         backface-visibility: hidden;
-        animation: enterRight 1s ease-out;
+        animation: enterRight 0.75s ease-out;
         @include fluid-mobile(font-size, 24px, 30px);
         @include fluid-mobile(margin-bottom, 20px, 40px);
         @include desktop {
@@ -52,7 +52,7 @@
         text-align: center;
         padding: 0 11%;
         backface-visibility: hidden;
-        animation: enterLeft 1s ease-out;
+        animation: enterLeft 0.75s ease-out;
         @include fluid-mobile(font-size, 16px, 18px);
         @include desktop {
             @include fluid-desktop(font-size, 18px, 24px);
