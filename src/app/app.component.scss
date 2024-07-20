@@ -9,3 +9,8 @@
         @include fluid-mobile(font-size, 16px, 20px);
     }
 }
+
+.editor-container {
+    z-index: 9999;
+    @include flex-column-center;
+}

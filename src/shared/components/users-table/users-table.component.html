@@ -10,6 +10,6 @@
       <tr class="header-row" mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
   
       <!-- Users Rows -->
-      <tr class="user-row" mat-row *matRowDef="let row; columns: displayedColumns;" (dblclick)="onUserDblClick(row)"></tr>
+      <tr class="user-row" mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onUserClick(row)"></tr>
   </table>
 </div>

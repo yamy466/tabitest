@@ -14,4 +14,8 @@ import { User } from '../../../shared/models/user.model';
 export class UserDetailsComponent {
   readonly #userSrv = inject(UserService);
   users = toSignal<User[]>(this.#userSrv.users$);
+
+  openEditor(user?: User) {
+    this.#userSrv.openUserEditor(user);
+  }
 }

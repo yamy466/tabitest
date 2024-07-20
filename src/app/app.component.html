@@ -3,4 +3,7 @@
     <main class="content">
         <router-outlet></router-outlet>
     </main>
+    <div *ngIf="isEditorOpen()" class="shadow-overlay editor-container">
+        <app-user-editor></app-user-editor>
+    </div>
 </div>

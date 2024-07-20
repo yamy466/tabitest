@@ -1,4 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { UserService } from '../../../core/services/user.service';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-user-editor',
@@ -9,5 +11,9 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserEditorComponent {
+  readonly #userSrv = inject(UserService);
 
+  closeEditor() {
+    this.#userSrv.closeUserEditor();
+  }
 }

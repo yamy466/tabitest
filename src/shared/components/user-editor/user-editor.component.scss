@@ -1,0 +1,26 @@
+@import '../../../assets/styles/mixins';
+@import '../../../assets/styles/variables';
+
+.user-editor {
+    width: 96vw;
+    height: 60vh;
+    border-radius: 20px;
+    background-color: white;
+    position: relative;
+    @include flex-column;
+    @include fluid-mobile(padding, 10px, 20px);
+
+    @include desktop {
+        width: 60vw;
+    }
+
+    .close-btn {
+        cursor: pointer;
+        position: absolute;
+        background-image: url('../../../assets/images/close-btn.png');
+        background-position: center;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        @include fluid-mobile(width height, 15px, 20px);
+    }
+}

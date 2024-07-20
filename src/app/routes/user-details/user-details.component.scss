@@ -10,6 +10,8 @@
     }
 
     .page-desc {
+        text-align: center;
+        padding: 0 17%;
         @include fluid-mobile(margin-bottom, 15px, 30px);
         @include fluid-mobile(font-size, 14px, 16px);
         @include desktop {
