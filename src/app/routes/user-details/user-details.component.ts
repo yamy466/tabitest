@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { UsersTableComponent } from '../../../shared/components/users-table/users-table.component';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { UserService } from '../../../core/services/user.service';
 import { User } from '../../../shared/models/user.model';
 
@@ -13,7 +12,7 @@ import { User } from '../../../shared/models/user.model';
 })
 export class UserDetailsComponent {
   readonly #userSrv = inject(UserService);
-  users = toSignal<User[]>(this.#userSrv.users$);
+  users = this.#userSrv.users$;
 
   openEditor(user?: User) {
     this.#userSrv.openUserEditor(user);

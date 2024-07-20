@@ -1,7 +1,23 @@
 <div class="user-editor">
     <div class="close-btn" (click)="closeEditor()"></div>
     <h2 class="page-title">User Editor</h2>
-    <form>
-        
+    <form class="user-form" [formGroup]="userForm" (submit)="submitUser()">
+        <div class="input-container">
+            <label for="name-ctrl" class="form-label">Name</label>
+            <input id="name-ctrl" class="form-control" type="text" formControlName="name">
+        </div>
+        <div class="input-container">
+            <label for="phone-ctrl" class="form-label">Phone</label>
+            <input id="phone-ctrl" class="form-control" type="tel" formControlName="phone">
+        </div>
+        <div class="input-container">
+            <label for="email-ctrl" class="form-label">Email</label>
+            <input id="email-ctrl" class="form-control" type="email" formControlName="email">
+        </div>
+        <div class="input-container">
+            <label for="site-ctrl" class="form-label">Site</label>
+            <input id="site-ctrl" class="form-control" type="url" formControlName="website">
+        </div>
+        <button type="submit" class="btn btn-outline-primary" [disabled]="!userForm.valid">{{isNewUser() ? 'Create' : 'Edit'}}</button>
     </form>
 </div>

@@ -1,7 +1,10 @@
 <div class="user-page">
     <h2 class="page-title">User Data</h2>
-    <p class="page-desc">Here you can watch, edit, add, delete all the data you'd want</p>
+    <p class="page-desc">Here you can watch, edit, and create all the data you'd want</p>
     <div class="users-table">
-        <app-users-table [users]="users()" (userDblClicked)="openEditor($event)"></app-users-table>
+        <app-users-table [users]="users" (userDblClicked)="openEditor($event)"></app-users-table>
+        <div class="table-actions">
+            <button class="btn btn-outline-success" (click)="openEditor(undefined)">Create</button>
+        </div>
     </div>
 </div>

@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 import { UserService } from '../core/services/user.service';
 
 function initializeApp(userSrv: UserService): () => Observable<any> {
-  return () => userSrv.getUsers();
+  return () => userSrv.loadUsers();
 }
  
 export const appConfig: ApplicationConfig = {

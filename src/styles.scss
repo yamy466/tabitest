@@ -71,3 +71,14 @@
   .cdk-describedby-message-container {
     display: none;
   }
+
+  button.btn {
+    border-radius: 20px;
+    @include fluid-mobile(font-size, 16px, 20px);
+    @include fluid-mobile(min-width, 80px, 120px);
+
+    &:disabled {
+      color: $disabledColor;
+      border-color: $disabledColor;
+    }
+  }

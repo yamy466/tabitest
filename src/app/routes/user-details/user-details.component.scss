@@ -19,6 +19,11 @@
         }
     }
 
+    .table-actions {
+       display: flex;
+       @include fluid-mobile(margin-top, 15px, 20px);
+    }
+
     .users-table {
         width: 96%;
     }
