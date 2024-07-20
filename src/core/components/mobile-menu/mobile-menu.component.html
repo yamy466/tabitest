@@ -1,0 +1,5 @@
+<nav *ngIf="isOpen()" class="mobile-menu" @openClose>
+    <ul>
+        <li *ngFor="let item of menuItems()" class="menu-item" [class.selected]="selectedItem() === item" (click)="navigate(item)">{{item.title}}</li>
+    </ul>
+</nav>

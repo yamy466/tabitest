@@ -1,0 +1,11 @@
+@import '../assets/styles/mixins';
+@import '../assets/styles/variables';
+
+.content {
+    min-height: calc(100vh - $headerMobHeight);
+    @include fluid-mobile(font-size, 14px, 16px);
+    @include desktop{
+        min-height: calc(100vh - $headerHeight);
+        @include fluid-mobile(font-size, 16px, 20px);
+    }
+}
